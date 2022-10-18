@@ -33,12 +33,29 @@ function quadrado(){
 }
 function total(){
     let valor = document.getElementById("val").value;
-    let Juros = document.getElementById("ju").value;
-    let Mes = document.getElementById("mes").value;
+    let juros = document.getElementById("ju").value;
+    let mes = document.getElementById("mes").value;
+    
+    if(!Number(valor)){
+        alert("O valor deve ser um numero.");
+        return
+    }
+
+    if(!Number(juros)){
+        alert("O Juros deve ser um numero.");
+        return
+    }
+
+    if(!Number(mes)){
+        alert("O mes deve ser um numero.");
+        return
+    }
+
     let resultado = 0;
     for(let i = 1; i<= mes; i++){
         resultado += valor * (1+(juros/100));
     }
+
 
     document.write("O resusltado é  " + resultado); 
 }
