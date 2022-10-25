@@ -31,6 +31,10 @@ function quadrado() {
         document.write("O Quadrado de " + i + " é " + (i * i) + "<br>")
     }
 }
+function moeda(atual){
+    return atual.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
+}
+
 function total() {
     let valor = document.getElementById("val").value;
     let juros = document.getElementById("ju").value;
@@ -55,11 +59,15 @@ function total() {
     }
 
     let resultado = 0;
+    let texto = "";
     for (let i = 1; i <= mes; i++) {
         resultado = valor * (1 + (juros / 100));
         valor = resultado;
+         texto += "Mês " + i + " valor: " + moeda(resultado) + "<br>";
+        //document.write("Mês " + i + " valor: " + moeda(resultado) + "<br>");
     }
-
-    document.write("O Resultado é " + resultado);
+    document.getElementById("meses").innerHTML = texto;
+    document.getElementById("resultado").innerHTML = "Total: " + moeda(resultado);
+    //document.write( "O Resultado é " + moeda(resultado) );
 }
 
